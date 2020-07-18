@@ -1,0 +1,8 @@
+{
+    "appService.zipIgnorePattern": [
+        "node_modules{,/**}",
+        ".vscode{,/**}"
+    ],
+    "appService.defaultWebAppToDeploy": "/subscriptions/56b3a2b8-80d1-4799-921c-d26bb3683801/resourceGroups/Websites/providers/Microsoft.Web/sites/image2minecraft-skin",
+    "appService.deploySubpath": "."
+}
