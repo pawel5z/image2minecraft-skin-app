@@ -1,7 +1,7 @@
 var express = require('express');
 var router = express.Router();
 var multer = require('multer');
-var upload = multer({dest: 'image_processing'});
+var upload = multer({ dest: 'image_processing' });
 var fs = require('fs');
 var child_process = require('child_process');
 const { isNullOrUndefined } = require('util');
