@@ -43,6 +43,7 @@ router.post('/',
       console.log('skin.png was deleted');
     })
   });
+  res.header('Content-Disposition', 'attachment; filename="skin.png"');
   file.pipe(res);
 })
 
