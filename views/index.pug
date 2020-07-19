@@ -3,3 +3,14 @@ extends layout
 block content
   h1= title
   p Welcome to #{title}
+  form(action="/", method="post", enctype="multipart/form-data")
+    div Front image
+      br
+      input(type="file", name="frontImg")
+    br
+    br
+    div Back image
+      br
+      input(type="file", name="backImg")
+    br
+    input(type="submit", value="Create skin")
