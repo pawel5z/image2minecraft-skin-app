@@ -5,6 +5,7 @@ var upload = multer({ dest: 'image_processing' });
 var fs = require('fs');
 var child_process = require('child_process');
 const { isNullOrUndefined } = require('util');
+const { v4: uuidv4 } = require('uuid');
 
 /* GET home page. */
 router.get('/', function(req, res, next) {
@@ -18,12 +19,13 @@ router.post('/',
   if (isNullOrUndefined(req.files.frontImg) || isNullOrUndefined(req.files.backImg))
     return res.send('some images are missing').end();
   
+  var generatedSkinName = uuidv4() + '.png';
   child_process.execSync('python3 main.py skin_template.png '
                          + req.files.frontImg[0].filename
                          + ' '
                          + req.files.backImg[0].filename
                          + ' '
-                         + 'skin.png',
+                         + generatedSkinName,
                          { cwd: 'image_processing' });
 
                          
@@ -36,12 +38,12 @@ router.post('/',
     console.log(req.files.backImg[0].filename + ' was deleted');
   })
 
-  var file = fs.createReadStream('image_processing/skin.png');
+  var file = fs.createReadStream('image_processing/' + generatedSkinName);
   file.on('end', () => {
-    fs.unlink('image_processing/skin.png', (err) => {
+    fs.unlink('image_processing/' + generatedSkinName, (err) => {
       if (err) throw err;
-      console.log('skin.png was deleted');
-    })
+      console.log(generatedSkinName + ' was deleted');
+    });
   });
   res.header('Content-Disposition', 'attachment; filename="skin.png"');
   file.pipe(res);
