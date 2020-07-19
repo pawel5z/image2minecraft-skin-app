@@ -9,7 +9,7 @@ const { v4: uuidv4 } = require('uuid');
 
 /* GET home page. */
 router.get('/', function(req, res, next) {
-  res.render('index', { title: 'Image to minecraft skin!' });
+  res.render('index', { title: 'Image to Minecraft skin' });
 });
 
 /* POST home page */

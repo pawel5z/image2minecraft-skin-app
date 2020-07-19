@@ -6,3 +6,11 @@ body {
 a {
   color: #00B7FF;
 }
+
+img {
+  padding: 5px;
+}
+
+input {
+  padding: 2px;
+}
