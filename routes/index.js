@@ -28,21 +28,11 @@ router.post('/',
                          + generatedSkinName,
                          { cwd: 'image_processing' });
 
-                         
-  fs.unlink(req.files.frontImg[0].path, (err) => {
-    if (err) throw err;
-    console.log(req.files.frontImg[0].filename + ' was deleted');
-  })
-  fs.unlink(req.files.backImg[0].path, (err) => {
-    if (err) throw err;
-    console.log(req.files.backImg[0].filename + ' was deleted');
-  })
-
   var file = fs.createReadStream('image_processing/' + generatedSkinName);
   file.on('end', () => {
     fs.unlink('image_processing/' + generatedSkinName, (err) => {
       if (err) throw err;
-      console.log(generatedSkinName + ' was deleted');
+      console.log(generatedSkinName + ' has been deleted');
     });
   });
   res.header('Content-Disposition', 'attachment; filename="skin.png"');
