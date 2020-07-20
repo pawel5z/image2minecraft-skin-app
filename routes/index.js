@@ -1,7 +1,7 @@
 var express = require('express');
 var router = express.Router();
 var multer = require('multer');
-var upload = multer({ dest: 'image_processing' });
+var upload = multer({ dest: 'image_processing/upload' });
 var fs = require('fs');
 var child_process = require('child_process');
 const { isNullOrUndefined } = require('util');
@@ -21,9 +21,9 @@ router.post('/',
   
   var generatedSkinName = uuidv4() + '.png';
   child_process.execSync('python3 main.py skin_template.png '
-                         + req.files.frontImg[0].filename
+                         + 'upload/' + req.files.frontImg[0].filename
                          + ' '
-                         + req.files.backImg[0].filename
+                         + 'upload/' + req.files.backImg[0].filename
                          + ' '
                          + generatedSkinName,
                          { cwd: 'image_processing' });
