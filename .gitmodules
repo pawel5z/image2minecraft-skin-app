@@ -1,0 +1,3 @@
+[submodule "image_processing/img2mc_skin"]
+	path = image_processing/img2mc_skin
+	url = https://github.com/pawel5z/img2mc-skin.git
