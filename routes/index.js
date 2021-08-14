@@ -20,12 +20,10 @@ router.post('/',
     return res.send('some images are missing').end();
   
   var generatedSkinName = uuidv4() + '.png';
-  child_process.execSync('python3 main.py skin_template.png '
-                         + 'upload/' + req.files.frontImg[0].filename
-                         + ' '
-                         + 'upload/' + req.files.backImg[0].filename
-                         + ' '
-                         + generatedSkinName,
+  child_process.execSync('python3 img2mc_skin/main.py skin_template.png'
+                         + ' upload/' + req.files.frontImg[0].filename
+                         + ' upload/' + req.files.backImg[0].filename
+                         + ' -o ' + generatedSkinName,
                          { cwd: 'image_processing' });
 
   var file = fs.createReadStream('image_processing/' + generatedSkinName);
