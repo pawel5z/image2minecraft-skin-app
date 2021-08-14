@@ -2,13 +2,11 @@ extends layout
 
 block content
   h1= title
-  p Place any images you like into Minecraft skin!
+  p Paste any images you like into Minecraft skin!
   form(action="/", method="post", enctype="multipart/form-data")
     div Front image
       br
       input(type="file", name="frontImg")
-    br
-    br
     div Back image
       br
       input(type="file", name="backImg")
@@ -16,19 +14,18 @@ block content
     input(type="submit", value="Create skin")
     br
     br
+  hr
   section
     h2 Tutorial
-    p Prepare image of your choice. Square fragments yield the best results. You can easily cut them out in #[a(href="https://www.gimp.org/", target="_blank") GIMP].
+    p Prepare image of your choice. Square fragments yield the best results. You can cut them out e.g. in #[a(href="https://www.gimp.org/", target="_blank") GIMP].
       br
       img(src="/images/pikachu.png", alt="example1", height="200")
       img(src="/images/pikachu_sq.png", alt="example_square1", height="200")
     br
-    p Load image from your drive into form.
+    p Load image from your disk into form.
       br
       img(src="/images/filled_form.png", alt="filled_form", height="150")
     p Hit "Create skin" button. Download will start automatically.
     p In your Minecraft launcher navigate to Skins > New skin > Browse. Select your skin and submit.
       br
       img(src="/images/final_skin.png", alt="final_skin", height="300")
-    p Save your new skin and show off on servers!
-
