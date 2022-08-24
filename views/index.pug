@@ -1,7 +1,7 @@
 extends layout
 
 block content
-  h1= title
+  h1= "Image to Minecraft skin"
   p Paste any images you like into Minecraft skin!
   form(action="/", method="post", enctype="multipart/form-data")
     table
@@ -23,6 +23,8 @@ block content
       tr
         td(colspan="2")
           input(type="submit", value="Create skin")
+  p(class="error")
+    != formInputError
   hr
   section
     h2

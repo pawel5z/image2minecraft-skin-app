@@ -16,3 +16,7 @@ img {
 input {
   padding: 2px;
 }
+
+.error {
+  color: orangered;
+}
