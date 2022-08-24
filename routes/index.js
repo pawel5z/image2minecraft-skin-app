@@ -27,7 +27,7 @@ router.post(
     var generatedSkinName = uuidv4() + '.png';
     try {
       await exec(
-        `python3 img2mc_skin/main.py skin_template.png upload/${req.files.frontImg[0].filename} upload/${req.files.backImg[0].filename} -o ${generatedSkinName}`,
+        `../pyenv/bin/python3 img2mc_skin/img2skin.py upload/${req.files.frontImg[0].filename} upload/${req.files.backImg[0].filename} ${req.body.color ? `-c ${req.body.color.toLowerCase().slice(1)}ff` : ''} -o ${generatedSkinName}`,
         { cwd: 'image_processing' });
     } catch (err) {
       console.error(err);
