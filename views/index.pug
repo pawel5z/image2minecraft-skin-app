@@ -4,19 +4,25 @@ block content
   h1= title
   p Paste any images you like into Minecraft skin!
   form(action="/", method="post", enctype="multipart/form-data")
-    div Front image
-      br
-      input(type="file", name="frontImg")
-    div Back image
-      br
-      input(type="file", name="backImg")
-    div Fill color
-      br
-      input(type="color", name="color", value="#ededed")
-    br
-    input(type="submit", value="Create skin")
-    br
-    br
+    table
+      tr
+        td
+          label(for="frontImg") Front image
+        td
+          input(type="file", id="frontImg", name="frontImg")
+      tr
+        td
+          label(for="backImg") Back image
+        td
+          input(type="file", id="backImg", name="backImg")
+      tr
+      td
+        label(for="color") Fill color
+      td
+        input(type="color", id="color", name="color", value="#ededed")
+      tr
+        td(colspan="2")
+          input(type="submit", value="Create skin")
   hr
   section
     h2
