@@ -4,6 +4,6 @@ set -e
 
 python3 -m venv pyenv
 source pyenv/bin/activate
-pip3 install -r image_processing/img2mc_skin/requirements.txt
+pip3 install -r requirements.txt
 
 [ -d image_processing/upload ] || mkdir image_processing/upload
