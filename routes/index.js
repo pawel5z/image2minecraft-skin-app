@@ -19,8 +19,10 @@ router.post(
   '/',
   upload.fields([{ name: 'frontImg', maxCount: 1 }, { name: 'backImg', maxCount: 1 }]),
   async function (req, res, next) {
-    if (!req.files.frontImg || !req.files.backImg)
-      return res.render('index', { formInputError: 'Some images are missing.' });
+    if (!req.files.frontImg || !req.files.backImg) {
+      res.render('index', { formInputError: 'Some images are missing.' });
+      return next();
+    }
 
     var generatedSkinName = uuidv4() + '.png';
     try {
@@ -44,7 +46,9 @@ router.post(
         console.error(err);
       }
     });
-
+    next();
+  },
+  async function (req, res, next) {
     // Delete uploaded files.
     try {
       await Promise.all([
