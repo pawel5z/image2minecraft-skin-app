@@ -32,6 +32,7 @@ router.post(
     } catch (err) {
       console.error(err);
       res.render('index', { formInputError: 'Error creating skin.' });
+      return next();
     }
 
     // Send generated skin to user.
