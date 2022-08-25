@@ -1,4 +1,4 @@
-# Online image converter for Minecraft skins
+# Online images to Minecraft skins converter
 
 ## Tutorial
 
@@ -14,3 +14,21 @@ Hit "Create skin" button. Download will start automatically.\
 In your Minecraft launcher navigate to Skins > New skin > Browse. Select your skin and submit.
 
 ![final_skin](https://user-images.githubusercontent.com/45500957/136184899-9dc9d20d-82d5-4f73-a12e-32c4eb47cec1.png)
+
+## Deployment instructions
+
+### Prerequisites
+
+Before running instance of the app, make sure to run `configure` script.
+This will create Python virtual environment in `pyenv` directory, download necessary Python packages and create directories required for the app to work.
+
+```
+./configure
+npm install
+```
+
+### Launch
+
+```
+npm start
+```
