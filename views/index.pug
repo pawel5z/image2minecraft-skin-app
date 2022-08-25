@@ -1,6 +1,6 @@
 extends layout
 
-block content
+block prepend content
   h1= "Image to Minecraft skin"
   p Paste any images you like into Minecraft skin!
   form(action="/", method="post", enctype="multipart/form-data")
@@ -16,16 +16,12 @@ block content
         td
           input(type="file", id="backImg", name="backImg")
       tr
-      td
-        label(for="color") Fill color
-      td
-        input(type="color", id="color", name="color", value="#ededed")
+        td
+          label(for="color") Fill color
+        td
+          input(type="color", id="color", name="color", value="#ededed")
       tr
         td(colspan="2")
           input(type="submit", value="Create skin")
   p(class="error")
     != formInputError
-  hr
-  section
-    h2
-      a(href='https://github.com/pawel5z/image2minecraft-skin-app#tutorial') Tutorial
