@@ -1,5 +1,7 @@
 # Online images to Minecraft skins converter
 
+![GitHub Workflow Status](https://img.shields.io/github/workflow/status/pawel5z/image2minecraft-skin-app/Deploy?label=deployment)
+
 ## Tutorial
 
 Prepare image of your choice. Square fragments yield the best results. You can cut them out e.g. in [GIMP](https://www.gimp.org/).
